@@ -6,6 +6,7 @@ import {dataType} from "./schema";
 
 function App() {
     const [count, setCount] = useState<number[]>([])
+    const colorRef = useRef<string[]>([])
     const [data, setData] = useState<dataType[]>([])
     const [isComplete, setIsComplete] = useState(false)
     const [isComplete2, setIsComplete2] = useState(false)
@@ -13,17 +14,24 @@ function App() {
     const peopleRef = useRef<HTMLInputElement>(document.createElement('input'))
     const nameRef = useRef<HTMLInputElement>(document.createElement('input'))
     const [point, setPoint] = useState<string>("")
-    console.log(count)
+    console.log(colorRef.current)
 
     const peopleClick = () => {
         let n: number = +peopleRef.current.value
         let count = []
+        let color = []
         for (let i = 1; i <= n; i++) {
             count.push(i)
+            if (i % 2 === 0){
+                color.push("w")
+            }else{
+                color.push("b")
+            }
         }
         setCount(count)
         setIsComplete(true)
         countRef.current = count.length
+        colorRef.current = color
     }
 
     const nameClick = () => {
@@ -32,7 +40,9 @@ function App() {
             return
         }
         let n = getRandom(count)
-        setData(pre => [...pre, {n: n, name: name}])
+        let colors = colorRef.current
+        let color = getRandom(colors)
+        setData(pre => [...pre, {n: n, name: name, color: color}])
         setCount(pre => {
             let result = [...pre]
             let index = pre.indexOf(n)
@@ -44,6 +54,7 @@ function App() {
             }
             return result
         })
+        colors.splice(colors.indexOf(color), 1)
         nameRef.current.value = ""
     }
 
@@ -101,6 +112,8 @@ function App() {
                     <div className={"margin"}>{data.name}</div>
                     <div className={"margin"}>號碼:</div>
                     <div>{data.n}</div>
+                    <div className={"margin"}>隊伍:</div>
+                    <div className={data.color}/>
                     <div className={"margin"}>紅包:</div>
                     <input type="text"/>
                 </div>))}
