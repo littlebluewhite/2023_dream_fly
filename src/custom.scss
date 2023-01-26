@@ -17,9 +17,15 @@
     display: block;
     width: 100px;
     font-size: 30px;
-    color: #787612;
-    background-color: #48f1e3;
+    color: #fff800;
+    background-color: #2d2f94;
     cursor: pointer;
+    border: none;
+    border-radius: 3px;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
   }
 
 }
@@ -45,7 +51,7 @@
       color: #cc0b0b;
       font-weight: bolder;
       width: 100px;
-      background-color: #06003e;
+      background-color: #05002e;
       font-size: 40px;padding: 0;
       border: none;
       border-radius: 0;
