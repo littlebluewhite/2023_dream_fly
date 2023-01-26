@@ -1,0 +1,50 @@
+.general {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+
+  label {
+    margin-right: 10px;
+  }
+
+  input {
+    font-size: 30px;
+  }
+
+  button{
+    margin-left: 15px;
+    display: block;
+    width: 100px;
+    font-size: 30px;
+    color: #787612;
+    background-color: #48f1e3;
+    cursor: pointer;
+  }
+
+}
+
+.participateContainer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-content: center;
+  height: 400px;
+  .participate{
+    margin: 0 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: #ffec02;
+    .margin{
+      margin: 5px;
+    }
+  }
+}
+
+.point{
+  margin-top: 20px;
+  font-size: 300px;
+  font-weight: bold;
+}
