@@ -38,7 +38,21 @@
     align-items: center;
     color: #ffec02;
     .margin{
-      margin: 5px;
+      margin: 10px;
+    }
+    -webkit-appearance: none;
+    input{
+      color: #cc0b0b;
+      font-weight: bolder;
+      width: 100px;
+      background-color: #06003e;
+      font-size: 40px;padding: 0;
+      border: none;
+      border-radius: 0;
+      outline: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
     }
   }
 }

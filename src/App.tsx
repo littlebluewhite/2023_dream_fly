@@ -57,6 +57,9 @@ function App() {
         setPoint(point)
     }
 
+    const resetClick = () => {
+        setPoint("")
+    }
     return (
         <div className="App">
 
@@ -98,11 +101,16 @@ function App() {
                     <div className={"margin"}>{data.name}</div>
                     <div className={"margin"}>號碼:</div>
                     <div>{data.n}</div>
+                    <div className={"margin"}>紅包:</div>
+                    <input type="text"/>
                 </div>))}
             </div>
             {isComplete2 && <div className={"general"}>
                 <button onClick={()=>{getClick()}}>
                     抽籤
+                </button>
+                <button onClick={()=>{resetClick()}}>
+                    清除
                 </button>
             </div>}
             {isComplete2 && <div className={"point"}>
