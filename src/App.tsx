@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import './App.css';
 import "./custom.scss"
 import {getRandom} from "./function";
@@ -14,7 +14,6 @@ function App() {
     const peopleRef = useRef<HTMLInputElement>(document.createElement('input'))
     const nameRef = useRef<HTMLInputElement>(document.createElement('input'))
     const [point, setPoint] = useState<string>("")
-    console.log(colorRef.current)
 
     const peopleClick = () => {
         let n: number = +peopleRef.current.value
@@ -49,8 +48,6 @@ function App() {
             result.splice(index, 1)
             if (result.length === 0) {
                 setIsComplete2(true)
-            }else{
-                nameRef.current.focus()
             }
             return result
         })
@@ -63,7 +60,6 @@ function App() {
         for (let i = 0; i < data.length; i++) {
             names.push(data[i].name)
         }
-        console.log(names)
         let point = getRandom(names)
         setPoint(point)
     }
@@ -71,6 +67,12 @@ function App() {
     const resetClick = () => {
         setPoint("")
     }
+
+    useEffect(()=>{
+        if (count.length !== 0){
+            nameRef.current.focus()
+        }
+    })
     return (
         <div className="App">
 
